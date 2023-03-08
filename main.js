@@ -1,13 +1,16 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-console.log(canvas);
+const canvasEl = document.querySelector("canvas"),
+  canvasEcx = canvasEl.getContext("2d");
 
 function setup() {
-  canvas.width = ctx = window.innerWidth;
-  canvas.height = ctx = window.innerHeight;
+  canvasEl.width = canvasEcx.width = window.innerWidth;
+  canvasEl.height = canvasEcx.height = window.innerHeight;
 }
 
-function draw() {}
-
 setup();
+
+function draw() {
+  canvasEcx.fillStyle = "#286047";
+  canvasEcx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+}
+
+draw();
