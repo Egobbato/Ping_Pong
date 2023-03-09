@@ -30,6 +30,11 @@ function draw() {
   /* Desenhando raquete direita*/
   canvasEcx.fillStyle = "#ffffff";
   canvasEcx.fillRect(window.innerWidth - lineWidtd - 10, 200, lineWidtd, 200);
+
+  /* Desenhando a bola*/
+  canvasEcx.beginPath();
+  canvasEcx.arc(500, 200, 20, 0, 2 * Math.PI, false);
+  canvasEcx.fill();
 }
 
 draw();
