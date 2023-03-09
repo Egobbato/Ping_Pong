@@ -35,6 +35,14 @@ function draw() {
   canvasEcx.beginPath();
   canvasEcx.arc(500, 200, 20, 0, 2 * Math.PI, false);
   canvasEcx.fill();
+
+  /* Desenhando o Placar */
+  canvasEcx.font = "bold 72px Arial";
+  canvasEcx.textAlign = "center";
+  canvasEcx.textBaseline = "top";
+  canvasEcx.fillStyle = "#01341D";
+  canvasEcx.fillText("3", window.innerWidth / 4, 50);
+  canvasEcx.fillText("1", window.innerWidth / 4 + window.innerWidth / 2, 50);
 }
 
 draw();
