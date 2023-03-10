@@ -3,17 +3,27 @@ const canvasEl = document.querySelector("canvas"),
 
 const lineWidtd = 15;
 
+/* Objeto Campo */
+
+const field = {
+  w: window.innerWidth,
+  h: window.innerHeight,
+  draw: function () {
+    canvasEcx.fillStyle = "#286047";
+    canvasEcx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+  },
+};
+
 function setup() {
-  canvasEl.width = canvasEcx.width = window.innerWidth;
-  canvasEl.height = canvasEcx.height = window.innerHeight;
+  canvasEl.width = canvasEcx.width = field.w;
+  canvasEl.height = canvasEcx.height = field.h;
 }
 
 setup();
 
 function draw() {
   //Desenhando o campo//
-  canvasEcx.fillStyle = "#286047";
-  canvasEcx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+  field.draw();
 
   /*desenhando a linha central*/
   canvasEcx.fillStyle = "#ffffff";
