@@ -1,7 +1,7 @@
 const canvasEl = document.querySelector("canvas"),
   canvasEcx = canvasEl.getContext("2d");
 
-const lineWidtd = 15;
+const gapX = 10;
 
 /* Objeto Campo */
 const field = {
@@ -23,6 +23,29 @@ const line = {
   },
 };
 
+//Desenhando a Raquete
+const leftPaddle = {
+  x: gapX,
+  y: 100,
+  w: line.w,
+  h: 200,
+  draw: function () {
+    canvasEcx.fillStyle = "#ffffff";
+    canvasEcx.fillRect(this.x, this.y, this.w, this.h);
+  },
+};
+
+const rightPaddle = {
+  x: field.w - line.w - gapX,
+  y: 200,
+  w: line.w,
+  h: 200,
+  draw: function () {
+    canvasEcx.fillStyle = "#ffffff";
+    canvasEcx.fillRect(this.x, this.y, this.w, this.h);
+  },
+};
+
 function setup() {
   canvasEl.width = canvasEcx.width = field.w;
   canvasEl.height = canvasEcx.height = field.h;
@@ -35,15 +58,10 @@ function draw() {
   field.draw();
   /*desenhando a linha central*/
   line.draw();
-
   /*Desenhando as raquete esquerda*/
-  canvasEcx.fillStyle = "#ffffff";
-  canvasEcx.fillRect(10, 400, lineWidtd, 200);
-
+  leftPaddle.draw();
   /* Desenhando raquete direita*/
-  canvasEcx.fillStyle = "#ffffff";
-  canvasEcx.fillRect(window.innerWidth - lineWidtd - 10, 200, lineWidtd, 200);
-
+  rightPaddle.draw();
   /* Desenhando a bola*/
   canvasEcx.beginPath();
   canvasEcx.arc(500, 200, 20, 0, 2 * Math.PI, false);
