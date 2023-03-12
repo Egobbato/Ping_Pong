@@ -46,6 +46,18 @@ const rightPaddle = {
   },
 };
 
+const ball = {
+  x: 300,
+  y: 200,
+  r: 20,
+  draw: function () {
+    canvasEcx.fillStyle = "#ffffff";
+    canvasEcx.beginPath();
+    canvasEcx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+    canvasEcx.fill();
+  },
+};
+
 function setup() {
   canvasEl.width = canvasEcx.width = field.w;
   canvasEl.height = canvasEcx.height = field.h;
@@ -63,9 +75,7 @@ function draw() {
   /* Desenhando raquete direita*/
   rightPaddle.draw();
   /* Desenhando a bola*/
-  canvasEcx.beginPath();
-  canvasEcx.arc(500, 200, 20, 0, 2 * Math.PI, false);
-  canvasEcx.fill();
+  ball.draw();
 
   /* Desenhando o Placar */
   canvasEcx.font = "bold 72px Arial";
