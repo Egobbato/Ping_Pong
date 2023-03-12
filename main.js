@@ -83,8 +83,6 @@ function setup() {
   canvasEl.height = canvasEcx.height = field.h;
 }
 
-setup();
-
 function draw() {
   //Desenhando o campo//
   field.draw();
@@ -99,6 +97,24 @@ function draw() {
   /* Desenhando a bola*/
   ball.draw();
 }
-draw();
 
-window.setInterval(draw, 1000 / 60);
+window.animationFrame = (function () {
+  return (
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      return window.setInterval(callback, 1000 / 60);
+    }
+  );
+})();
+
+function main() {
+  animationFrame(main);
+  draw();
+}
+
+setup();
+main();
