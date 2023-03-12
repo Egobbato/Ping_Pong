@@ -4,13 +4,22 @@ const canvasEl = document.querySelector("canvas"),
 const lineWidtd = 15;
 
 /* Objeto Campo */
-
 const field = {
   w: window.innerWidth,
   h: window.innerHeight,
   draw: function () {
     canvasEcx.fillStyle = "#286047";
-    canvasEcx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    canvasEcx.fillRect(0, 0, this.w, this.h);
+  },
+};
+
+//Desenhando a Linha
+const line = {
+  w: 15,
+  h: field.h,
+  draw: function () {
+    canvasEcx.fillStyle = "#ffffff";
+    canvasEcx.fillRect(field.w / 2 - this.w / 2, 0, this.w, this.h);
   },
 };
 
@@ -24,14 +33,8 @@ setup();
 function draw() {
   //Desenhando o campo//
   field.draw();
-
   /*desenhando a linha central*/
-  canvasEcx.fillStyle = "#ffffff";
-  const x = window.innerWidth / 2 - lineWidtd / 2;
-  const y = 0;
-  const w = lineWidtd;
-  const h = window.innerHeight;
-  canvasEcx.fillRect(x, y, w, h);
+  line.draw();
 
   /*Desenhando as raquete esquerda*/
   canvasEcx.fillStyle = "#ffffff";
