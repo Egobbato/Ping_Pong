@@ -63,11 +63,18 @@ const ball = {
   x: 300,
   y: 200,
   r: 20,
+  speed: 1,
+  _movie: function () {
+    this.x += 1 * this.speed;
+    this.y += 1 * this.speed;
+  },
+
   draw: function () {
     canvasEcx.fillStyle = "#ffffff";
     canvasEcx.beginPath();
     canvasEcx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
     canvasEcx.fill();
+    this._movie();
   },
 };
 
@@ -92,5 +99,6 @@ function draw() {
   /* Desenhando a bola*/
   ball.draw();
 }
-
 draw();
+
+window.setInterval(draw, 1000 / 60);
