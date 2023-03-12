@@ -46,6 +46,19 @@ const rightPaddle = {
   },
 };
 
+const score = {
+  human: 3,
+  computer: 1,
+  draw: function () {
+    canvasEcx.font = "bold 72px Arial";
+    canvasEcx.textAlign = "center";
+    canvasEcx.textBaseline = "top";
+    canvasEcx.fillStyle = "#01341D";
+    canvasEcx.fillText(this.human, field.w / 4, 50);
+    canvasEcx.fillText(this.computer, field.w / 4 + field.w / 2, 50);
+  },
+};
+
 const ball = {
   x: 300,
   y: 200,
@@ -74,16 +87,10 @@ function draw() {
   leftPaddle.draw();
   /* Desenhando raquete direita*/
   rightPaddle.draw();
+  /* Desenhando o Placar */
+  score.draw();
   /* Desenhando a bola*/
   ball.draw();
-
-  /* Desenhando o Placar */
-  canvasEcx.font = "bold 72px Arial";
-  canvasEcx.textAlign = "center";
-  canvasEcx.textBaseline = "top";
-  canvasEcx.fillStyle = "#01341D";
-  canvasEcx.fillText("3", window.innerWidth / 4, 50);
-  canvasEcx.fillText("1", window.innerWidth / 4 + window.innerWidth / 2, 50);
 }
 
 draw();
