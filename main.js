@@ -45,9 +45,13 @@ const rightPaddle = {
   y: 200,
   w: line.w,
   h: 200,
+  _move: function () {
+    this.y = ball.y;
+  },
   draw: function () {
     canvasEcx.fillStyle = "#ffffff";
     canvasEcx.fillRect(this.x, this.y, this.w, this.h);
+    this._move();
   },
 };
 
@@ -69,7 +73,7 @@ const ball = {
   y: 200,
   r: 20,
   speed: 1,
-  _movie: function () {
+  _move: function () {
     this.x += 1 * this.speed;
     this.y += 1 * this.speed;
   },
@@ -79,7 +83,7 @@ const ball = {
     canvasEcx.beginPath();
     canvasEcx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
     canvasEcx.fill();
-    this._movie();
+    this._move();
   },
 };
 
