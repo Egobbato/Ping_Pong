@@ -2,6 +2,7 @@ const canvasEl = document.querySelector("canvas"),
   canvasEcx = canvasEl.getContext("2d");
 
 const gapX = 10;
+const mouse = { x: 0, y: 0 };
 
 /* Objeto Campo */
 const field = {
@@ -26,12 +27,16 @@ const line = {
 //Desenhando a Raquete
 const leftPaddle = {
   x: gapX,
-  y: 100,
+  y: 0,
   w: line.w,
   h: 200,
+  _move: function () {
+    this.y = mouse.y - this.h / 2;
+  },
   draw: function () {
     canvasEcx.fillStyle = "#ffffff";
     canvasEcx.fillRect(this.x, this.y, this.w, this.h);
+    this._move();
   },
 };
 
@@ -115,6 +120,13 @@ function main() {
   animationFrame(main);
   draw();
 }
+
+canvasEl.addEventListener("mousemove", (e) => {
+  mouse.x = e.pageX;
+  mouse.y = e.pageY;
+
+  console.log(mouse);
+});
 
 setup();
 main();
