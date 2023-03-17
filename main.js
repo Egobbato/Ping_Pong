@@ -45,6 +45,7 @@ const rightPaddle = {
   y: 200,
   w: line.w,
   h: 200,
+
   speed: 5,
   _move: function () {
     if (this.y + this.h / 2 < ball.y + ball.r) {
@@ -83,7 +84,7 @@ const score = {
 };
 
 const ball = {
-  x: 500,
+  x: field.h / field.w,
   y: 0,
   r: 20,
   speed: 10,
@@ -147,6 +148,7 @@ const ball = {
   _pointUp: function () {
     this._speedUp();
     rightPaddle._speedUp();
+
     this.x = field.w / 2;
     this.y = field.h / 2;
   },
