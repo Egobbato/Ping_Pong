@@ -45,8 +45,7 @@ const rightPaddle = {
   y: 200,
   w: line.w,
   h: 200,
-
-  speed: 5,
+  speed: 4,
   _move: function () {
     if (this.y + this.h / 2 < ball.y + ball.r) {
       this.y += this.speed;
@@ -84,7 +83,7 @@ const score = {
 };
 
 const ball = {
-  x: field.h / field.w,
+  x: 500,
   y: 0,
   r: 20,
   speed: 10,
@@ -96,7 +95,7 @@ const ball = {
       // Verifica se a raquete direita está na posição y da bola
       if (
         this.y + this.r > rightPaddle.y &&
-        this.y - this.r < rightPaddle.y + rightPaddle.x
+        this.y - this.r < rightPaddle.y + rightPaddle.h
       ) {
         // rebate a bola invertendo o sinal de x
         this._reverseX();
@@ -148,7 +147,6 @@ const ball = {
   _pointUp: function () {
     this._speedUp();
     rightPaddle._speedUp();
-
     this.x = field.w / 2;
     this.y = field.h / 2;
   },
